@@ -1,0 +1,113 @@
+body {
+    overflow: hidden;
+    margin: 0;
+    height: 100%;
+}
+
+.grid {
+    margin-left: 200px;
+    height: 5000px;
+    background:
+      linear-gradient(
+      rgb(57, 57, 57), transparent 1px
+      ),
+      linear-gradient(
+      90deg,
+      rgb(57, 57, 57), transparent 1px
+      );
+    background-size: 50px 50px;
+    background-position: left top;
+    border: 0px solid rgb(0, 0, 0);
+}
+
+.noColissions {
+    /* display: inline; */
+    align-items: center;
+    /* position: absolute; */
+}
+
+.barHeader {
+    margin-left: 10px;
+}
+
+.barBTN {
+    width: 75px;
+    margin-left: 15px;
+    transition: .2s linear;
+}
+
+#bar {
+    background-color: white;
+    width: 300px;
+    min-height: 100vh;
+    float: left;
+    border: 2px solid black;
+}
+
+#info {
+    background-color: white;
+    width: 300px;
+    min-height: 100vh;
+    float: right;
+    border: 2px solid black;
+}
+
+h1 { cursor: default; }
+h2 { cursor: default; }
+h3 { cursor: default; }
+h4 { cursor: default; }
+h5 { cursor: default; }
+p { cursor: default; }
+
+#del_button {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 20px;
+  margin-top: 50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  border-color: #f83c3c;
+  color: #f83c3c;
+  transition: .2s linear;
+  background-color: white;
+}
+
+input {
+  transition: .2s linear;
+  font-size: 18px;
+  width: 200px;
+  height: 20px;
+  margin: auto;
+  border-width: 0px; 
+  border-bottom: 1px;
+}
+  /* :active, :hover, :focus { */
+
+input:active {
+    outline: 0;
+    outline-offset: 0;
+}
+input:focus {
+    outline: 0;
+    outline-offset: 0;
+}
+input:hover {
+    outline: 0;
+    outline-offset: 0;
+}
+
+input:hover {
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #393939;
+}
+
+#del_button:hover {
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #f83c3c;
+}
+
+.barBTN:hover {
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #777777;
+}
