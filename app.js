@@ -8,17 +8,16 @@ function solve_line_equals(a) {
         while (ind < a.length && a[ind][i] == 0) {
             ++ind;
         }
-        if (ind == a.length) {
-            //Error
-            return {}
-        }
-        [a[i], a[ind]] = [a[ind], a[i]]
-        for (let j = i + 1; j < a.length; ++j) {
+        if (ind != a.length) {
+            [a[i], a[ind]] = [a[ind], a[i]]
+            for (let j = i + 1; j < a.length; ++j) {
             let prod = a[j][i] / a[i][i]
-            for (let k = 0; k <= n; ++k) {
-                a[j][k] -= a[i][k] * prod
+                for (let k = 0; k <= n; ++k) {
+                    a[j][k] -= a[i][k] * prod
+                }
             }
         }
+        
     }
     let ans = new Array(n)
     for (let i = n - 1; i >= 0; --i) {
@@ -258,6 +257,7 @@ let actions = [], cords = new Map()
 let WireSelector = document.getElementById("selectWire"), ResistorSelector = document.getElementById("selectResistor"), DiodSelector = document.getElementById("selectDiod")
 let VoltSelector = document.getElementById("selectVolt"), AmperSelector = document.getElementById("selectAmper"), OhmSelector = document.getElementById("selectOhm")
 let SourceSelector = document.getElementById("selectSource")
+let grid = document.getElementById("grid")
 
 let elements_cnt = new Point(0, 0)
 
@@ -267,6 +267,7 @@ let elements_cnt = new Point(0, 0)
 // }
 
 function check(e) {
+    return true;
     return (e.x < 100 && e.y < 5)
 }
 
@@ -364,12 +365,12 @@ function draw_element(e, ind) {
     newElemText.style.color = '#ff9900'
     newElemText.style.position = 'absolute';
     newElemText.style.fontSize = '20px'
-    if (ind != -1) {
+    if (ind != -1 && grid.classList.contains("grid")) {
         if (e.type == 3) {
             //Volt
             newElemText.textContent = get_text(back_end_list[cords.get(hsh(e.p1))] - back_end_list[cords.get(hsh(e.p2))])
         }
-        if (e.type == 4) {
+        if (e.type == 4 || e.type == 6) {
             //Amper
             newElemText.textContent = get_text(back_end_list[temp + ind])
         }
@@ -506,6 +507,14 @@ document.addEventListener('keypress', function (e) {
             }
             count_i()
         }
+    }
+    if (e.keyCode == 103) {
+        if (grid.classList.contains("grid")) {
+            grid.classList.remove("grid");
+        } else {
+            grid.classList.add("grid");
+        }
+        update();
     }
 })
 
